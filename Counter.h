@@ -25,6 +25,9 @@ public:
 class CountDown : public Counter    // Derived class
 {
 public:
+    CountDown();
+    CountDown(unsigned int count);
+
     Counter operator -- ();
 };
 

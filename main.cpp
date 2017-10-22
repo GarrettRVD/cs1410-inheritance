@@ -8,6 +8,7 @@ int main()
     Counter c1;
     Counter c2(99);
     CountDown c3;
+    CountDown c4(50);
 
     ++c2;
 
@@ -19,6 +20,7 @@ int main()
     --c3;
 
     cout << "C3 Count is: " << c3.getCount() << endl;
+    cout << "C4 Count is: " << c4.getCount() << endl;
 
     return 0;
 }
