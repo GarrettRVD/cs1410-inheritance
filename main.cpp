@@ -3,8 +3,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     Counter c1;
     Counter c2(99);
     CountDown c3;

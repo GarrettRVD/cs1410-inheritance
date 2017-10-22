@@ -51,3 +51,81 @@ void Distance::setInches(float inches)
 {
     Distance::inches = inches;
 }
+
+/*!
+ * Operator : Compares Distance values for equality
+ * @param rhs :
+ * @return : == operator
+ */
+bool Distance::operator==(const Distance &rhs) const
+{
+    return feet == rhs.feet &&
+           inches == rhs.inches;
+}
+
+/*!
+ * Operator : Compares Distance values for inequality
+ * @param rhs :
+ * @return : != operator
+ */
+bool Distance::operator!=(const Distance &rhs) const
+{
+    return !(rhs == *this);
+}
+
+/*!
+ * Output : Outputs distance values to console
+ * @param os : std::ostream
+ * @param distance : Distance values
+ * @return : output
+ */
+std::ostream &operator<<(std::ostream &os, const Distance &distance) {
+    os << "feet: " << distance.feet << " inches: " << distance.inches;
+    return os;
+}
+
+/*!
+ * DistSign : Default Constructor
+ */
+DistSign::DistSign()
+{
+    sign = pos;
+}
+
+/*!
+ * DistSign : 3 parameter Constructor
+ * @param feet : Initial DistSign feet
+ * @param inches : Initial DistSign inches
+ * @param sign : Initial DistSign sign
+ */
+DistSign::DistSign(int feet, float inches, posneg sign) : Distance(feet, inches), sign(sign) {}
+
+/*!
+ * getSign : Getter for sign variable
+ * @return : current sign
+ */
+posneg DistSign::getSign() const
+{
+    return sign;
+}
+
+/*!
+ * setSign : Setter for sign variable
+ * @param sign : value to set sign
+ */
+void DistSign::setSign(posneg sign)
+{
+    DistSign::sign = sign;
+}
+
+/*!
+ * Output : Outputs sign value to console
+ * @param os : std::ostream
+ * @param sign : sign value
+ * @return : output
+ */
+std::ostream &operator<<(std::ostream &os, const DistSign &sign)
+{
+    os << static_cast<const Distance &>(sign) << " sign: " << sign.sign;
+    return os;
+}
